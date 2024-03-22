@@ -49,24 +49,36 @@ tests-no-zope = ["attrs", "cloudpickle", "hypothesis", "pympler", "pytest-xdist"
 
 [[package]]
 name = "black"
-version = "24.3.0"
+version = "22.1.0"
 description = "The uncompromising code formatter."
 category = "dev"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.6.2"
 
 [package.dependencies]
 click = ">=8.0.0"
 mypy-extensions = ">=0.4.3"
-packaging = ">=22.0"
 pathspec = ">=0.9.0"
 platformdirs = ">=2"
+tomli = ">=1.1.0"
 
 [package.extras]
 colorama = ["colorama (>=0.4.3)"]
-d = ["aiohttp (>=3.7.4,!=3.9.0)", "aiohttp (>=3.7.4)"]
+d = ["aiohttp (>=3.7.4)"]
 jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 uvloop = ["uvloop (>=0.15.2)"]
+
+[[package]]
+name = "blue"
+version = "0.9.1"
+description = "Blue -- Some folks like black but I prefer blue."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+black = "22.1.0"
+flake8 = ">=3.8,<5.0.0"
 
 [[package]]
 name = "certifi"
@@ -134,6 +146,19 @@ typing-extensions = ">=4.8.0"
 all = ["email-validator (>=2.0.0)", "httpx (>=0.23.0)", "itsdangerous (>=1.1.0)", "jinja2 (>=2.11.2)", "orjson (>=3.2.1)", "pydantic-extra-types (>=2.0.0)", "pydantic-settings (>=2.0.0)", "python-multipart (>=0.0.7)", "pyyaml (>=5.3.1)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0)", "uvicorn[standard] (>=0.12.0)"]
 
 [[package]]
+name = "flake8"
+version = "4.0.1"
+description = "the modular source code checker: pep8 pyflakes and co"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+mccabe = ">=0.6.0,<0.7.0"
+pycodestyle = ">=2.8.0,<2.9.0"
+pyflakes = ">=2.4.0,<2.5.0"
+
+[[package]]
 name = "h11"
 version = "0.14.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -189,6 +214,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "ignr"
+version = "2.2"
+description = "Python command line client to download.gitignore templates from gitignore.io"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "isort"
 version = "5.13.2"
 description = "A Python utility / library to sort Python imports."
@@ -198,6 +231,14 @@ python-versions = ">=3.8.0"
 
 [package.extras]
 colors = ["colorama (>=0.4.6)"]
+
+[[package]]
+name = "mccabe"
+version = "0.6.1"
+description = "McCabe checker, plugin for flake8"
+category = "dev"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "more-itertools"
@@ -282,6 +323,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "pycodestyle"
+version = "2.8.0"
+description = "Python style guide checker"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
 name = "pydantic"
 version = "2.6.4"
 description = "Data validation using Python type hints"
@@ -307,6 +356,14 @@ python-versions = ">=3.8"
 
 [package.dependencies]
 typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
+
+[[package]]
+name = "pyflakes"
+version = "2.4.0"
+description = "passive checker of Python programs"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "pytest"
@@ -431,7 +488,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "3.11.*"
-content-hash = "d5b265bccd348835e804a331b0a9de9e961f122888ce2c667cff76fbf9b0f9c8"
+content-hash = "54b0b97bcf9576493808d554679e2ab1ae01053e979887c5653084691281b3b7"
 
 [metadata.files]
 annotated-types = []
@@ -439,17 +496,21 @@ anyio = []
 atomicwrites = []
 attrs = []
 black = []
+blue = []
 certifi = []
 click = []
 colorama = []
 coverage = []
 exceptiongroup = []
 fastapi = []
+flake8 = []
 h11 = []
 httpcore = []
 httpx = []
 idna = []
+ignr = []
 isort = []
+mccabe = []
 more-itertools = []
 mslex = []
 mypy-extensions = []
@@ -459,8 +520,10 @@ platformdirs = []
 pluggy = []
 psutil = []
 py = []
+pycodestyle = []
 pydantic = []
 pydantic-core = []
+pyflakes = []
 pytest = []
 pytest-cov = []
 ruff = []

@@ -2,22 +2,25 @@
 name = "api_back"
 version = "0.1.0"
 description = ""
-authors = ["dev-perez <alyne.kmp@gmail.com>"]
+authors = ["dev-perez <alyne.kmp@gmail.com>", "anderson <>", "rafael-italiano <>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "3.11.*"
 fastapi = "^0.110.0"
 uvicorn = "^0.29.0"
 exceptiongroup = "^1.2.0"
+ignr = "^2.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 pytest-cov = "^4.1.0"
 taskipy = "^1.12.2"
-black = "^24.3.0"
 ruff = "^0.3.4"
 httpx = "^0.27.0"
 isort = "^5.13.2"
+blue = "0.9.1"
+black = "^22.1.0"
 
 [tool.ruff]
 line-length = 79
