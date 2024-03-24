@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  backend_app:
+    build: ./backend/
+    volumes:
+      - ./backend/app:/home/app_user/app
+      - ./backend/tests:/home/app_user/tests
+      - ./backend/requirements.txt:/home/app_user/requirements.txt
+    ports:
+      - "8000:8000"

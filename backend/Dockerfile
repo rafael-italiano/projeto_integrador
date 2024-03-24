@@ -1,6 +1,6 @@
 FROM python:alpine3.18
 RUN apk --no-cache add curl
-RUN addgroup -S python
+RUN addgroup -S app_group
 
 RUN adduser \
     --disabled-password \
@@ -11,9 +11,9 @@ RUN adduser \
     --uid "1000" \
     "app_user"
 
-USER python
+USER app_user
 
-WORKDIR /home/python/
+WORKDIR /home/app_user/
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
