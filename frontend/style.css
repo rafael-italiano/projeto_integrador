@@ -1,0 +1,315 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.caragua-header {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(310deg, #6e0072 48%, #fe4421 70%);
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 16px;
+}
+.menu-item {
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.menu-item:hover {
+  background-color: #ddd;
+  color: black;
+}
+.menu-item.active-item {
+  background-color: #6e0072;
+  color: white;
+}
+
+.caragua-main__welcome {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "text-welcome text-welcome-orange"
+    "text-welcome carousel";
+  margin: 16px 56px;
+}
+
+.caragua-main__welcome_text {
+  grid-area: text-welcome;
+}
+
+.caragua-main__welcome-text--title-orange {
+  color: #fe4421;
+  font-size: 36px;
+  text-transform: uppercase;
+  /* margin-bottom: 24px; */
+}
+
+.caragua-main__welcome-text--title-black {
+  grid-area: text-welcome;
+  color: black;
+  font-size: 40px;
+  column-span: 1;
+}
+
+.slider {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px; /* Define o tamanho máximo do slider */
+  height: 400px; /* Define a altura fixa do slider */
+  margin: 0;
+  justify-self: center;
+}
+
+.slider-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  color: #000;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.arrow.prev {
+  left: 10px;
+}
+
+.arrow.next {
+  right: 10px;
+}
+
+.arrow:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.caragua-main__welcome__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 84px 56px;
+}
+
+.caragua-main__welcome__cards_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: 84px 56px;
+  gap: 16px;
+}
+
+.caragua-main__welcome__cards--item {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  width: 380px;
+  background-color: #fe4421;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.caragua-main__welcome__cards--item:hover {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  width: 380px;
+  background-color: #6e0072;
+  border-radius: 8px;
+  margin-bottom: 24px;
+
+  .caragua-main__welcome__cards--item-title {
+    color: #fe4421;
+    font-size: 24px;
+  }
+
+  .caragua-main__welcome__cards--item-img {
+    margin: -40px 0px 0px 16px;
+    padding: 20px 20px 20px 20px;
+    background-color: #e3e3e3;
+    border-radius: 10px 10px 10px 10px;
+    max-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+  }
+}
+
+.caragua-main__welcome__cards--item-img {
+  margin: -40px 0px 0px 16px;
+  padding: 20px 20px 20px 20px;
+  background-color: #e3e3e3;
+  border-radius: 10px 10px 10px 10px;
+  max-height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.caragua-main__welcome__cards--item-text-container {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 16px;
+}
+
+.caragua-main__welcome__cards--item-title {
+  color: #6e0072;
+  font-size: 24px;
+  margin:0;
+}
+
+.caragua-main__welcome__cards--item-description {
+  color: #000000;
+}
+
+/* .caragua-main__welcome__cards--item-btn{
+    background-color:#FE4421;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    width:100%;
+    border-radius: 8px;
+    border: none;
+    height: fit-content;
+    padding: 4px;
+    align-self: center;
+} */
+
+.caragua-main__welcome__news {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "item1 item2"
+    "item3 item4 item5";
+  background: linear-gradient(310deg, #2125fe 10%, #6e0072 70%);
+  height: auto;
+  gap: 20px;
+  padding: 24px;
+  justify-content: center;
+}
+.caragua-main__welcome__news-item {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-top: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.caragua-main__welcome__news-item--item1 {
+  display: grid;
+  grid-area: item1;
+  width: 100%;
+  grid-column: 1 / 2;
+}
+.caragua-main__welcome__news-item--item2 {
+  grid-area: item2;
+  display: flex;
+  width: 100%;
+}
+.caragua-main__welcome__news-item--item3 {
+  grid-area: item3;
+  display: flex;
+  width: 100%;
+}
+.caragua-main__welcome__news-item--item4 {
+  grid-area: item4;
+  display: flex;
+  width: 100%;
+}
+.caragua-main__welcome__news-item--item5 {
+  grid-area: item5;
+  display: flex;
+  width: 100%;
+}
+
+.caragua-main__welcome__news--img {
+  width: 100%;
+  border-radius: 30px 8px 100px 8px;
+}
+.footer {
+    background-color: #f0f0f0;
+    padding: 40px 0;
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer__list,
+.footer__social-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer__list-item,
+.footer__social-item {
+    margin-bottom: 8px;
+}
+
+.footer__link,
+.footer__social-link {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer__info {
+    margin-bottom: 5px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
