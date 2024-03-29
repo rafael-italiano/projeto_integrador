@@ -6,6 +6,7 @@ class EventsManager():
     def __init__(self):
 
         self.events = {}
+        self.deleted_events = {}
         self.next_id = 1
 
     def get_events(self) -> list[Event]:
@@ -19,17 +20,16 @@ class EventsManager():
         self.next_id += 1
         return event_id
 
-    def update_events(self, id, event: Event) -> bool:
+    def update_event(self, id, event: Event) -> bool:
 
         if self.events.get(id):
             self.events[id] = event
             return True
         return False
 
-    def delete_events(self, event_id) -> bool:
+    def delete_event(self, event_id) -> bool:
         
         if self.events.get(event_id):
-            del self.events[event_id]
+            self.deleted_events[event_id] = self.events.pop(event_id)
             return True
-        
         return False
