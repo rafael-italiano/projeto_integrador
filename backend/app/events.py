@@ -7,6 +7,6 @@ class Event():
     title: str
     start_timestamp: int
     end_timestamp: int
-    allDay: bool
+    all_day: bool
     url: str
     description: str
