@@ -41,7 +41,7 @@ def update_event(id: int, event: dict):
         title=event['title'],
         start_timestamp=event['start_timestamp'],
         end_timestamp=event['end_timestamp'],
-        all_day=event['allDay'],
+        all_day=event['all_day'],
         url=event['url'],
         description=event['description']
     )
