@@ -27,7 +27,7 @@ class EventsManager():
             return True
         return False
 
-    def delete_event(self, event_id) -> bool:
+    def remove_event(self, event_id) -> bool:
         
         if self.events.get(event_id):
             self.deleted_events[event_id] = self.events.pop(event_id)
