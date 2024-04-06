@@ -2,8 +2,8 @@ services:
   app:
     build: ./backend/
     volumes:
-      - ./backend/app/app:/home/app_user/app
-      - ./backend/app/requirements.txt:/home/app_user/requirements.txt
+      - ./backend/application/app:/home/app_user/app
+      - ./backend/application/requirements.txt:/home/app_user/requirements.txt
     ports:
       - "8000:8000"
     depends_on:
@@ -16,7 +16,7 @@ services:
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
-    env_file: "/backend/.env"
+    env_file: "./backend/.env"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 1s
