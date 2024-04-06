@@ -1,6 +1,4 @@
 FROM python:alpine3.18
-RUN apk --no-cache add curl
-RUN apk --no-cache add sqlite
 RUN addgroup -S app_group
 
 RUN adduser \
