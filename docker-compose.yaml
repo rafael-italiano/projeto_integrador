@@ -1,6 +1,6 @@
 services:
   app:
-    build: ./backend/
+    build: ./backend/application/
     volumes:
       - ./backend/application/app:/home/app_user/app
       - ./backend/application/requirements.txt:/home/app_user/requirements.txt
