@@ -1,5 +1,6 @@
 FROM python:alpine3.18
 RUN apk --no-cache add curl
+RUN apk --no-cache add sqlite
 RUN addgroup -S app_group
 
 RUN adduser \
@@ -17,4 +18,3 @@ WORKDIR /home/app_user/
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-CMD ["python", "-m", "uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--app-dir", "app", "--log-level","debug"]
