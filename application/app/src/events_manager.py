@@ -5,7 +5,16 @@ class EventsManager():
     
     def __init__(self):
 
-        self.events = {}
+        self.events = {
+            1: Event(
+                title= "sample",
+                start_timestamp= 500,
+                end_timestamp= 800,
+                all_day= False,
+                url= "https://www.google.com",
+                description= "Event 1 Description"
+            )
+        }
         self.deleted_events = {}
         self.next_id = 1
 
