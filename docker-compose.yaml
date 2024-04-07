@@ -4,20 +4,17 @@ services:
     volumes:
       - ./application/app:/home/app_user/app
       - ./application/requirements.txt:/home/app_user/requirements.txt
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
-    command: ["python", "-m", "uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--app-dir", "app", "--log-level","debug"]
 
   db:
     build: ./database/
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
-    expose:
-      - "5432"
     env_file: ".env"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
@@ -33,10 +30,10 @@ services:
 
   web:
     image: nginx:alpine
-    ports:
-     - 8081:80
     volumes:
       - ./web/:/usr/share/nginx/html
+    ports:
+     - 8081:80
 
 volumes:
   pgdata:
