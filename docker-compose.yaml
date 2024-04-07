@@ -1,11 +1,33 @@
-version: '3'
-
 services:
-  backend_app:
-    build: ./backend/
+  app:
+    build: ./backend/application/
     volumes:
-      - ./backend/app:/home/app_user/app
-      - ./backend/tests:/home/app_user/tests
-      - ./backend/requirements.txt:/home/app_user/requirements.txt
+      - ./backend/application/app:/home/app_user/app
+      - ./backend/application/requirements.txt:/home/app_user/requirements.txt
     ports:
       - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["python", "-m", "uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--app-dir", "app", "--log-level","debug"]
+
+  db:
+    build: ./backend/database/
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file: "./backend/.env"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  pgdata:

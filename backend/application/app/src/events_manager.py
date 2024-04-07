@@ -1,4 +1,4 @@
-from events import Event
+from app.src.events import Event
 
 
 class EventsManager():

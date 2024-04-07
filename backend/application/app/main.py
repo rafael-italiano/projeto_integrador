@@ -2,8 +2,8 @@ import json
 
 from fastapi import FastAPI
 
-from events_manager import EventsManager
-from events import Event
+from app.src.events_manager import EventsManager
+from app.src.events import Event
 
 app = FastAPI()
 
