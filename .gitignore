@@ -9,7 +9,7 @@ api_back/__pycache__/
 
 # C extensions
 *.so
-
+*.http
 # Distribution / packaging
 .Python
 build/
