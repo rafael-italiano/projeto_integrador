@@ -16,3 +16,7 @@ WORKDIR /home/app_user/
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+
+EXPOSE 8000
+
+CMD ["python", "-m", "uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--app-dir", "app", "--log-level", "debug"]
