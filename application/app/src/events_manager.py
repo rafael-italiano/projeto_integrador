@@ -2,7 +2,7 @@ from app.src.events import Event
 
 
 class EventsManager():
-    
+
     def __init__(self):
 
         self.events = {
@@ -12,7 +12,8 @@ class EventsManager():
                 end_timestamp= 800,
                 all_day= False,
                 url= "https://www.google.com",
-                description= "Event 1 Description"
+                description= "Event 1 Description",
+                address = "cidade"
             )
         }
         self.deleted_events = {}
@@ -21,10 +22,10 @@ class EventsManager():
     def get_events(self) -> list[Event]:
 
         return list(self.events.values())
-    
+
     def add_event(self, event: Event) -> int:
 
-        event_id = self.next_id 
+        event_id = self.next_id
         self.events[self.next_id] = event
         self.next_id += 1
         return event_id
@@ -37,7 +38,7 @@ class EventsManager():
         return False
 
     def remove_event(self, event_id) -> bool:
-        
+
         if self.events.get(event_id):
             self.deleted_events[event_id] = self.events.pop(event_id)
             return True

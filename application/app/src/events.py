@@ -10,3 +10,4 @@ class Event():
     all_day: bool
     url: str
     description: str
+    address: str
