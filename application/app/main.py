@@ -40,7 +40,8 @@ def create_event(event: dict):
         end_timestamp=event['end_timestamp'],
         all_day=event['all_day'],
         url=event['url'],
-        description=event['description']
+        description=event['description'],
+        address = event['address']
     )
     event_id = events_manager.add_event(new_event)
     return event_id
@@ -54,7 +55,8 @@ def update_event(id: int, event: dict):
         end_timestamp=event['end_timestamp'],
         all_day=event['all_day'],
         url=event['url'],
-        description=event['description']
+        description=event['description'],
+        address = event['address']
     )
     return events_manager.update_event(id, new_event)
 
