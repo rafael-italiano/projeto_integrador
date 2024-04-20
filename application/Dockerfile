@@ -1,6 +1,8 @@
 FROM python:alpine3.18
-RUN addgroup -S app_group
 
+RUN apk add --no-cache build-base libpq-dev 
+
+RUN addgroup -S app_group
 RUN adduser \
     --disabled-password \
     --gecos "" \
