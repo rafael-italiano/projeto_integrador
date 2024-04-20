@@ -7,6 +7,7 @@ api_back/__pycache__/
 *.py[cod]
 *$py.class
 
+.history/
 # C extensions
 *.so
 *.http
