@@ -8,8 +8,8 @@ class EventsManager():
         self.events = {
             1: Event(
                 title= "sample",
-                start_timestamp= 500,
-                end_timestamp= 800,
+                start_timestamp= "2024-12-12T09:00:00",
+                end_timestamp= "2024-12-12T12:00:00",
                 all_day= False,
                 url= "https://www.google.com",
                 description= "Event 1 Description",
