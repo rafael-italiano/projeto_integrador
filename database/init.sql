@@ -1,8 +1,24 @@
 CREATE TABLE event (
     id SERIAL PRIMARY KEY,
-    start_timestamp BIGINT NOT NULL,
-    end_timestamp VARCHAR NOT NULL,
+    start_timestamp TIMESTAMPTZ NOT NULL,
+    end_timestamp TIMESTAMPTZ NOT NULL,
     all_day BOOLEAN NOT NULL,
     url VARCHAR[100] NOT NULL,
-    description VARCHAR NOT NULL UNIQUE
+    description VARCHAR NOT NULL,
+    address VARCHAR NOT NULL,
+    archived BOOLEAN NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE OR REPLACE FUNCTION update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.update_at = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+
+CREATE TRIGGER update_users_timestamp
+BEFORE UPDATE ON "event"
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
