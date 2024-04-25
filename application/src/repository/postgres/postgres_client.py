@@ -15,19 +15,6 @@ class PostgresClient(BaseRepository):
             'port': port
         }
 
-        self.events = {
-                1: Event(
-                    title= "sample",
-                    start_timestamp= "2024-12-12T09:00:00",
-                    end_timestamp= "2024-12-12T12:00:00",
-                    all_day= False,
-                    url= "https://www.google.com",
-                    description= "Event 1 Description",
-                    address = "cidade"
-                )
-            }
-        self.next_id = max(self.events.keys()) + 1 
-
     def get(self, table, id=None):
         sql = f"""
             SELECT
@@ -58,17 +45,9 @@ class PostgresClient(BaseRepository):
                     ))
                 return event
 
-    
-    def _connect(self):
-        
-        
-        conn = psycopg2.connect(**params)
-
     def insert(self, table, data):
 
-        with psycopg2.connect(**self.params) as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(f"INSERT INTO {table} {tuple(data.keys())} VALUES {tuple(data)}")
+        pass
 
     def delete(self, table, id):
         
