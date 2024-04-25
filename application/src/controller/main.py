@@ -1,10 +1,9 @@
-import json
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.src.events_manager import EventsManager
-from app.src.events import Event
+from repository.postgres.postgres_client import PostgresClient
+from service.events_manager import EventsManager
+from models.events import Event
 
 app = FastAPI()
 origins = [
@@ -18,7 +17,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-events_manager = EventsManager()
+
+events_manager = EventsManager(PostgresClient())
 
 
 @app.get('/')

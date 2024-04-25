@@ -1,21 +1,22 @@
-from app.src.events import Event
-from app.src.postgres_client import PostgresClient
-from app.src.base_client import BaseDatabaseClient
+from models.events import Event
+from repository.base_client import BaseRepository
 
 class EventsManager():
 
-    def __init__(self, database:BaseDatabaseClient):
+    def __init__(self, database:BaseRepository):
+
         self.database=database
 
     def get_events(self) -> list[Event]:
+
         events=self.database.get(events)
+
         return list(self.events.values())
 
     def add_event(self, event: Event) -> int:
 
-        event_id = self.next_id
-        self.events[self.next_id] = event
-        self.next_id += 1
+        self.database.insert(event)
+
         return event_id
 
     def update_event(self, id, event: Event) -> bool:

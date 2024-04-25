@@ -1,9 +1,9 @@
 import psycopg2
 
-from app.src.events import Event
-from app.src.base_client import BaseDatabaseClient
+from models.events import Event
+from repository.base_client import BaseRepository
 
-class PostgresClient(BaseDatabaseClient):
+class PostgresClient(BaseRepository):
 
     events = {
             1: Event(
@@ -17,14 +17,25 @@ class PostgresClient(BaseDatabaseClient):
             )
         }
 
-    def connect(self):
+    def get(self, table, id=None):
+
+        if id:
+            return self.events[id]
+        
+        return list(self.events.values())
+
+    
+    def _connect(self):
         
         conn = psycopg2.connect("dbname=test user=postgres")
 
-    def insert(self):
-        pass
+    def insert(self, table):
 
-    def delete(self):
+        event_id = self.next_id
+        self.events[self.next_id] = event
+        self.next_id += 1
+
+    def delete(self, table, id):
         pass
 
     def update(self):
