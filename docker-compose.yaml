@@ -2,7 +2,7 @@ services:
   app:
     build: ./application/
     volumes:
-      - ./application/app:/home/app_user/app
+      - ./application/src:/home/app_user/app
       - ./application/requirements.txt:/home/app_user/requirements.txt
     ports:
       - "8000:8000"
