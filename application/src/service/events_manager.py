@@ -8,27 +8,26 @@ class EventsManager():
         self.database=database
 
     def get_events(self) -> list[Event]:
-
-        events=self.database.get(events)
-
-        return list(self.events.values())
+        
+        events=self.database.get("event")
+        return events
 
     def add_event(self, event: Event) -> int:
 
         self.database.insert(event)
-
-        return event_id
+        return 
 
     def update_event(self, id, event: Event) -> bool:
 
-        if self.events.get(id):
-            self.events[id] = event
+        if self.database.get(event, id):
+            self.database.update(event, id)
             return True
         return False
 
-    def remove_event(self, event_id) -> bool:
+    def remove_event(self, id) -> bool:
 
-        if self.events.get(event_id):
-            self.deleted_events[event_id] = self.events.pop(event_id)
-            return True
-        return False
+        event = self.database.get("event", id)
+        if not event:
+            return False
+        self.database.delete("event", id)
+        return True

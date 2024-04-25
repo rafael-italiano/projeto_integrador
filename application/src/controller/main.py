@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -18,7 +20,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-events_manager = EventsManager(PostgresClient())
+
+
+events_manager = EventsManager(
+    PostgresClient(
+        database=os.environ["POSTGRES_DB"],
+        host=os.environ["POSTGRES_HOST"],
+        port=os.environ["POSTGRES_PORT"],
+        user=os.environ["POSTGRES_USER"],
+        password=os.environ["POSTGRES_PASSWORD"],
+    )
+)
 
 
 @app.get('/')

@@ -21,5 +21,5 @@ class Event():
     
     def format_dates(self):
         
-        self.end_timestamp = datetime.fromisoformat(self.end_timestamp).replace(tzinfo = ZoneInfo(self.time_zone))
-        self.start_timestamp = datetime.fromisoformat(self.start_timestamp).replace(tzinfo = ZoneInfo(self.time_zone))
+        self.end_timestamp = datetime.fromisoformat(str(self.end_timestamp)).replace(tzinfo = ZoneInfo(self.time_zone))
+        self.start_timestamp = datetime.fromisoformat(str(self.start_timestamp)).replace(tzinfo = ZoneInfo(self.time_zone))
