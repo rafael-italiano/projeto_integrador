@@ -13,6 +13,7 @@ class Event():
     url: str
     description: str
     address: str
+    city: str
     time_zone: Optional[str] = "America/Sao_Paulo"
 
     def __post_init__(self):

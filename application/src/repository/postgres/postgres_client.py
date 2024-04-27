@@ -18,15 +18,17 @@ class PostgresClient(BaseRepository):
     def get(self, table, id=None):
         sql = f"""
             SELECT
-                name,
-                start_timestamp,
-                end_timestamp,
-                all_day,
-                url,
-                description,
-                address
+                event.name,
+                event.start_timestamp,
+                event.end_timestamp,
+                event.all_day,
+                event.url,
+                event.description,
+                event.address,
+                city.name
             FROM
-                {table};
+                event
+            JOIN city ON event.city_id = city.id;
         """
         with psycopg2.connect(**self.params) as conn:
             with conn.cursor() as cursor:
@@ -41,7 +43,8 @@ class PostgresClient(BaseRepository):
                         all_day= array[3],
                         url= array[4],
                         description= array[5],
-                        address = array[6]
+                        address = array[6],
+                        city = array[7]
                     ))
                 return event
 
