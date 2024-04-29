@@ -42,36 +42,50 @@ body {
   margin: 0;
 }
 .cg-card-container {
-  display: grid;
   overflow: auto;
   height: 1000px;
   margin-top: 16px;
+  border: 2px solid red;
+padding: 24px 24px;
+grid-template-columns: 1fr 1fr 1fr;
 }
 
-.cg-card-container__card {
-  max-width: 1320px;
-  max-height: 245px;
-  
+.cg-card-container__card--bottom {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  flex-direction:column;
+  height: 80px;
+  border-radius: 0 0 8px 8px;
+  background-color: #d9d9d9;
+  width:530px;
+}
+.cg-card-container__card--top {
+  position: relative;
+  margin-top: 60px;
+  display: flex;
+  flex-direction:column;
+  height: 140px;
+  border-radius: 16px 8px 0 0;
+  background-color: #d9d9d9;
+  padding-left: 140px;
+  width:390px;
 }
 
-.cg-card-container__card__content{
-  display: grid;
-  grid-template-columns: 243px 700px 243px;
-  grid-template-areas: "left middle right";
-  gap: 0;
-  width: 1340px;
-}
 
 .cg-card-container__card__content--left{
   display: flex;
   flex-direction: column;
-  min-height: 243px;
+  min-height: 100px;
   grid-area: left;
   background-color: #fe4421;
   border-radius: 16px;
-  gap:0;
   padding: 10px;
   align-items: center;
+  width: 100px;
+  position: absolute;
+  top: -70px;
+  left: 20px;
 }
 
 .cg-card-container__card__content--left-day{
@@ -105,11 +119,11 @@ body {
 .cg-card-container__card__content--middle{
   display: flex;
   flex-direction: column;
-  min-height: 243px;
   grid-area: middle;
   padding: 16px;
-  gap: 18px;
-  background-color: #fff;
+  gap: 8px;
+  width: 370px;
+  height: 90px;
 }
 
 .cg-card-container__card__content--middle-theme{
@@ -155,17 +169,4 @@ body {
   font-size: 16px;
   text-align: left;
   margin: 0;
-}
-
-.cg-card-container__card__content--right{
-  display: flex;
-  flex-direction: column;
-  min-height: 243px;
-  grid-area: right;
-  background-color: #fe4421;
-  border-radius: 16px;
-}
-
-.cg-card-container__card__content--right:hover{
-  background-color:#6e0072;
 }
