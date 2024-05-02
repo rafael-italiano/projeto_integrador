@@ -4,6 +4,7 @@ services:
     volumes:
       - ./application/src:/home/app_user/app
       - ./application/requirements.txt:/home/app_user/requirements.txt
+    working_dir: /home/app_user/app
     env_file: ".env"
     ports:
       - "8000:8000"

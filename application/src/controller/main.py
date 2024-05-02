@@ -24,11 +24,11 @@ app.add_middleware(
 
 events_manager = EventsManager(
     PostgresClient(
-        database=os.environ["POSTGRES_DB"],
-        host=os.environ["POSTGRES_HOST"],
-        port=os.environ["POSTGRES_PORT"],
-        user=os.environ["POSTGRES_USER"],
-        password=os.environ["POSTGRES_PASSWORD"],
+        database=os.environ.get("POSTGRES_DB", "event_management"),
+        host=os.environ.get("POSTGRES_HOST", "localhost"),
+        port=os.environ.get("POSTGRES_PORT", 5432),
+        user=os.environ.get("POSTGRES_USER", "postgres"),
+        password=os.environ.get("POSTGRES_PASSWORD", "password"),
     )
 )
 
