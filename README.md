@@ -50,13 +50,14 @@ Para verem a magia de inserção de eventos, usem o seguinte comando:
 curl -X POST http://localhost:8000/events \
 -H "Content-Type: application/json" \
 -d '{
-    "title": "sample",
-    "start_timestamp": 500,
-    "end_timestamp": 800,
+    "title": "festival camarão",
+    "start_timestamp": "2024-04-25 08:00:00",
+    "end_timestamp": "2024-04-26 08:00:00",
     "all_day": false,
-    "url": "https://www.google.com",
-    "description": "Event 1 Description",
-   "address": "sei la"
+    "url": "https://www.camarao.com.br",
+    "description": "nham nham",
+    "address": "praça de eventos",
+    "city": "Caraguatatuba"
 }'
 
 Atualizem o browser e voilà.

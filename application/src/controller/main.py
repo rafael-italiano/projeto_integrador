@@ -25,7 +25,7 @@ app.add_middleware(
 events_manager = EventsManager(
     PostgresClient(
         database=os.environ.get("POSTGRES_DB", "event_management"),
-        host=os.environ.get("POSTGRES_HOST", "localhost"),
+        host=os.environ.get("POSTGRES_HOST", "db"),
         port=os.environ.get("POSTGRES_PORT", 5432),
         user=os.environ.get("POSTGRES_USER", "postgres"),
         password=os.environ.get("POSTGRES_PASSWORD", "password"),
@@ -53,7 +53,8 @@ def create_event(event: dict):
         all_day=event['all_day'],
         url=event['url'],
         description=event['description'],
-        address = event['address']
+        address = event['address'],
+        city = event['city']
     )
     event_id = events_manager.add_event(new_event)
     return event_id
@@ -68,7 +69,8 @@ def update_event(id: int, event: dict):
         all_day=event['all_day'],
         url=event['url'],
         description=event['description'],
-        address = event['address']
+        address = event['address'],
+        city = event['city']
     )
     return events_manager.update_event(id, new_event)
 

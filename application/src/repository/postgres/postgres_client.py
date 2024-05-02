@@ -48,9 +48,36 @@ class PostgresClient(BaseRepository):
                     ))
                 return event
 
-    def insert(self, table, data):
-
-        pass
+    def insert(self,data, table="event"):
+        return
+        # sql = f"""INSERT INTO event (city_id, 
+        #                          name, 
+        #                          start_timestamp, 
+        #                          end_timestamp, 
+        #                          all_day, 
+        #                          url, 
+        #                          description, 
+        #                          address, 
+        #                     ) 
+        #         VALUES 
+        #         ({data.name}, '{data.start_timestamp}','{data.end_timestamp}', '{data.}', {}, '{}', '{}', '{}')"""
+        with psycopg2.connect(**self.params) as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(sql)
+                event_array = cursor.fetchall()
+                event = []
+                for array in event_array:
+                    event.append(Event(
+                        title= array[0],
+                        start_timestamp= array[1],
+                        end_timestamp= array[2],
+                        all_day= array[3],
+                        url= array[4],
+                        description= array[5],
+                        address = array[6],
+                        city = array[7]
+                    ))
+                return event
 
     def delete(self, table, id):
         
