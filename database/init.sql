@@ -30,6 +30,6 @@ INSERT INTO city ("name", "state_name") VALUES
 
 INSERT INTO event (city_id, name, start_timestamp, end_timestamp, all_day, url, description, address, archived, created_at, updated_at) 
 VALUES 
-    (1, 'DUMMY1','2024-04-25 08:00:00', '2024-04-25 17:00:00', false, 'google.com', 'Event description 1', '123 Main St', false, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    (2,'DUMMY2', '2024-04-26 09:00:00', '2024-04-26 16:00:00', true, 'google.com', 'Event description 2', '456 Elm St', false, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    (3,'DUMMY3', '2024-04-27 10:00:00', '2024-04-27 18:00:00', false, 'google.com', 'Event description 3', '789 Oak St', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    (1, 'Emerson Ceará em Caraguatatuba - Se Acalme','2024-07-06 20:00:00', '2024-07-06 21:00:00', false, 'https://bileto.sympla.com.br/event/91771/d/244030/s/1663595', 'Quando a lenda Emerson Ceará conta uma história, você precisa estar lá para ouvir!', 'Av. Goiás, 187 - Indaiá, Caraguatatuba - SP, 11665-120', false, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    (1,'Diego Besou em Caraguatatuba | PRONTO! SOCORRO!', '2024-07-21 20:00:00', '2024-07-06 21:00:00', false, 'https://bileto.sympla.com.br/event/91777/d/244057/s/1663669', 'O enfermeiro Diego Besou apresenta Pronto! Socoorro!, um espetáculo como você nunca viu sobre a área da saúde. Afinal, as coisas que acontecem em um pronto-socorro até Deus duvida!', 'Av. Goiás, 187 - Indaiá, Caraguatatuba - SP, 11665-120', false, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    (3,'Retiro Ubatuba com Juju Priyah - Rompendo seus limites', '2024-06-07 16:00:00', '2024-06-09 15:00:00', false, 'https://www.sympla.com.br/evento/retiro-ubatuba-com-juju-priyah-rompendo-seus-limites/2447536', 'Rompendo limites com Juju Priyah!', 'Rua Paulo Verzoline, 193 Praia do Itamambuca', true, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
