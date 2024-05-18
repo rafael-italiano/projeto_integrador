@@ -21,7 +21,6 @@ app.add_middleware(
 )
 
 
-
 events_manager = EventsManager(
     PostgresClient(
         database=os.environ.get("POSTGRES_DB", "event_management"),
@@ -33,48 +32,54 @@ events_manager = EventsManager(
 )
 
 
-@app.get('/')
+@app.get("/")
 def index():
 
-    return {'message': 'Olá Mundo!'}
+    return {"message": "Olá Mundo!"}
 
-@app.get('/events')
+
+@app.get("/events")
 def get_events():
 
     return events_manager.get_events()
 
-@app.post('/events')
+
+@app.post("/events")
 def create_event(event: dict):
-
     new_event = Event(
-        title=event['title'],
-        start_timestamp=event['start_timestamp'],
-        end_timestamp=event['end_timestamp'],
-        all_day=event['all_day'],
-        url=event['url'],
-        description=event['description'],
-        address = event['address'],
-        city = event['city']
+        name=event["name"],
+        start_timestamp=event["start_timestamp"],
+        end_timestamp=event["end_timestamp"],
+        all_day=event["all_day"],
+        url=event["url"],
+        description=event["description"],
+        address=event["address"],
+        city_id=event["city_id"],
+        archived=event["archived"],
     )
-    event_id = events_manager.add_event(new_event)
-    return event_id
 
-@app.put('/events/{id}')
+    event = events_manager.add_event(new_event)
+
+    return event
+
+
+@app.put("/events/{id}")
 def update_event(id: int, event: dict):
 
     new_event = Event(
-        title=event['title'],
-        start_timestamp=event['start_timestamp'],
-        end_timestamp=event['end_timestamp'],
-        all_day=event['all_day'],
-        url=event['url'],
-        description=event['description'],
-        address = event['address'],
-        city = event['city']
+        name=event["name"],
+        start_timestamp=event["start_timestamp"],
+        end_timestamp=event["end_timestamp"],
+        all_day=event["all_day"],
+        url=event["url"],
+        description=event["description"],
+        address=event["address"],
+        city_id=event["city_id"],
     )
     return events_manager.update_event(id, new_event)
 
-@app.delete('/events/{id}')
+
+@app.delete("/events/{id}")
 def delete_event(id: int):
 
     return events_manager.remove_event(id)

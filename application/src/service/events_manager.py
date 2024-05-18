@@ -13,9 +13,7 @@ class EventsManager():
         return events
 
     def add_event(self, event: Event) -> int:
-
-        self.database.insert(event)
-        return 
+        return self.database.insert(event)
 
     def update_event(self, id, event: Event) -> bool:
 
