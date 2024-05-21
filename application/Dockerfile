@@ -15,6 +15,7 @@ RUN adduser \
 USER app_user
 
 WORKDIR /home/app_user/
+ENV PATH="/home/app_user/.local/bin:${PATH}"
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
