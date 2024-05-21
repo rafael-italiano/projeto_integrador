@@ -1,32 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <title>Eventos litoral norte</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style.css" />
-  <title>Eventos Caraguatatuba</title>
-</head>
-
-<body>
-  <header class="cg-header">
-    <img class="cg-header__img" src="assets/logo.png" alt="imagem da cidade de caraguatatuba" />
-  </header>
-  <main>
-    <div class="cg-img-container">
-      <div class="cg-img-container__text">
-        <h1 class="cg-img-container__text--title">eventos e atrações</h1>
-        <h2 class="cg-img-container__text--subtitle">
-          Calendário de Eventos
-        </h2>
+  <body>
+    <header class="cg-header"></header>
+    <main>
+      <section class="caragua-main__banner">
+        <div class="caragua-main__banner--container">
+          <h1 class="caragua-main__banner--title">Eventos e atrações</h1>
+          <h2 class="caragua-main__banner--description">Litoral norte - SP</h2>
+        </div>
+      </section>
+      <section class="caragua-main__welcome">
+        <div class="slider">
+          <div class="slider-container">
+            <div class="slide">
+              <img src="assets/caragua_capa.jpg" alt="Slide 1" />
+            </div>
+          </div>
+          <button class="arrow prev"></button>
+          <button class="arrow next"></button>
+        </div>
+      </section>
+      <div class="cg-filters-container">
+        <div class="cg-filters">
+          <h3 class="cg-filters--title">Filtrar eventos</h3>
+          <div class="cg-filters--filter-container">
+            <i class="fas fa-filter"></i>
+            <label for="city-filter"></label>
+            <select
+              class="cg-filters--filter-select"
+              id="city-filter"
+              title="Selecione a cidade do evento"
+            >
+              <option class="cg-filters--label" value="">Todas cidades</option>
+              <option value="Caraguatatuba">Caraguatatuba</option>
+              <option value="São Sebastião">São Sebastião</option>
+              <option value="Ubatuba">Ubatuba</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <img class="cg-img-container__banner" src="assets/caragua3.jpg" />
-    </div>
-  </main>
-  <!-- Classe dos cards que serão gerados automáticos -->
-  <div id="lista-cards" class="cg-card-container"></div>
-  <!-- Chamada do código JS -->
-  <script src="script.js"></script>
-</body>
-<!-- Adicionar rodapé -->
+      <div id="lista-cards" class="cg-card-container"></div>
+    </main>
+
+    <script src="script.js"></script>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__section footer__section--links">
+          <h4 class="footer__title">Quem somos</h4>
+          <p class="footer__info-first">
+            Somos a agência líder em divulgação de eventos e atrações do litoral
+            norte de São Paulo. Nosso objetivo é conectar os visitantes com as
+            melhores experiências culturais, artísticas e recreativas da região.
+          </p>
+          
+        </div>
+        <div class="footer__section footer__section--contact">
+          <h4 class="footer__title">Contato</h4>
+          <p class="footer__info">Endereço: Av. Exemplo, 123</p>
+          <p class="footer__info">Telefone: (00) 1234-5678</p>
+          <p class="footer__info">Email: exemplo@email.com</p>
+        </div>
+        <div class="footer__section footer__section--social">
+          <h4 class="footer__title">Redes Sociais</h4>
+          <ul class="footer__social-list">
+            <li class="footer__social-item">
+              <a href="#" class="footer__social-link">Facebook</a>
+            </li>
+            <li class="footer__social-item">
+              <a href="#" class="footer__social-link">Twitter</a>
+            </li>
+            <li class="footer__social-item">
+              <a href="#" class="footer__social-link">Instagram</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
