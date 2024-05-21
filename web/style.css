@@ -62,25 +62,19 @@ main {
   text-transform: uppercase;
 }
 
-.slider {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  display: flex;
-}
-
-.slider-container {
-  display: flex;
-  flex-direction: row;
-  transition: transform 0.5s ease;
-}
 
 .slide {
-  flex: 0 0 100%;
+  flex: flex;
   max-width: 100%; /* Certifica-se de que a imagem não ultrapasse o tamanho do slide */
   width: 100%; /* Garante que a imagem ocupe todo o espaço disponível no slide */
-  height: 400px; /* Define a altura fixa para todos os slides */
+  height: 100px; /* Define a altura fixa para todos os slides */
   object-fit: fill;
+  text-align: center;
+  background-size: 100% 100%;
+}
+
+.slide img {
+  max-width: 100%;
 }
 
 .arrow {
@@ -160,6 +154,7 @@ main {
   margin: 32px auto;
   width: 100%;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .cg-card-container__card {
