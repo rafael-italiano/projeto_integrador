@@ -36,15 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let eventCards = [];
 
   async function fetchEvents() {
-    const response = await fetch("http://localhost:8000/events");
-    const eventsData = await response.json();
-
-    if (response.ok) {
-      eventCards = eventsData.map(createEventCard);
-      displayEvents(eventCards);
-    } else {
-      console.error("Error fetching events:", response.statusText);
-    }
+    const response = [{"title":"Diego Besou em Caraguatatuba | PRONTO! SOCORRO!","start_timestamp":"2024-07-21T20:00:00-03:00","end_timestamp":"2024-07-06T21:00:00-03:00","all_day":false,"url":"https://bileto.sympla.com.br/event/91777/d/244057/s/1663669","description":"O enfermeiro Diego Besou apresenta Pronto! Socoorro!, um espetáculo como você nunca viu sobre a área da saúde. Afinal, as coisas que acontecem em um pronto-socorro até Deus duvida!","address":"Av. Goiás, 187 - Indaiá, Caraguatatuba - SP, 11665-120","city":"Caraguatatuba","time_zone":"America/Sao_Paulo"},{"title":"Emerson Ceará em Caraguatatuba - Se Acalme","start_timestamp":"2024-07-06T20:00:00-03:00","end_timestamp":"2024-07-06T21:00:00-03:00","all_day":false,"url":"https://bileto.sympla.com.br/event/91771/d/244030/s/1663595","description":"Quando a lenda Emerson Ceará conta uma história, você precisa estar lá para ouvir!","address":"Av. Goiás, 187 - Indaiá, Caraguatatuba - SP, 11665-120","city":"Caraguatatuba","time_zone":"America/Sao_Paulo"},{"title":"Retiro Ubatuba com Juju Priyah - Rompendo seus limites","start_timestamp":"2024-06-07T16:00:00-03:00","end_timestamp":"2024-06-09T15:00:00-03:00","all_day":false,"url":"https://www.sympla.com.br/evento/retiro-ubatuba-com-juju-priyah-rompendo-seus-limites/2447536","description":"Rompendo limites com Juju Priyah!","address":"Rua Paulo Verzoline, 193 Praia do Itamambuca","city":"Ubatuba","time_zone":"America/Sao_Paulo"}];
+    const eventsData = response
+    eventCards = eventsData.map(createEventCard);
+    displayEvents(eventCards);
   }
 
   function createEventCard(event) {
