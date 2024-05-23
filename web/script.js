@@ -62,8 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const endHour = endDate.getHours();
     const endMinutes = endDate.getMinutes();
     const all_day = event.all_day;
-    const title = event.title;
-    const city = event.city;
+    const title = event.name;
+    const city = event.city_id;
     const linkEvent = event.url;
 
     const monthNames = [
