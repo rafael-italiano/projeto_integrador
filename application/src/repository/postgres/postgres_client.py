@@ -26,7 +26,7 @@ class PostgresClient(BaseRepository):
                 event.url,
                 event.description,
                 event.address,
-                city.id,
+                city.name,
                 event.archived
             FROM
                 event
